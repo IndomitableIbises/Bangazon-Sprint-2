@@ -1,0 +1,1 @@
+from .department_view import DepartmentListView
