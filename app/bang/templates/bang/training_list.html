@@ -1,0 +1,14 @@
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+{% include "bang/navbar.html" with nav_location=location %}
+<h1>These Are Made Up Programs from TrainingListTemplateView </h1>
+
+<ul>
+  {% for trainings in training_list %}
+    <li>
+      {{trainings.name}}
+    </li>
+  {% endfor %}
+</ul>
+{% endblock main_stuff %}
