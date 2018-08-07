@@ -9,5 +9,5 @@ urlpatterns = [
 ##########
 # DEPARTMENT PATHS by Raf
     path('departments/', views.DepartmentListView.as_view(), name='departments'),
-    path('departments/<int:pk:>/', views.DepartmentDetailView.as_view(), name='department_detail'),
+    path('departments/<int:pk>/', views.DepartmentDetailView.as_view(), name='department_detail'),
     path('departments/add/', views.DepartmentFormView.as_view(), name='department_form'),]

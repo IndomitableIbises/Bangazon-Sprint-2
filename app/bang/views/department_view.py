@@ -27,7 +27,7 @@ class DepartmentFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['location'] = 'departments'
+        context['location'] = 'departments_form'
         return context
 
     def form_valid(self, form):

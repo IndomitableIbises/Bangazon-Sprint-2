@@ -3,7 +3,7 @@
 
 {% block main_stuff %}
 
-  {% include "bang/navbar.html" with nav_location=location %}
+
 
   <h1>These Are Departments from DepartmentListView </h1>
 
@@ -11,6 +11,7 @@
     {% for department in department_list %}
     <li>
       <a href="{% url 'bang:department_detail' department.id %}">{{department.dept_name}}</a>
+      Placeholder Text
     </li>
     {% endfor %}
   </ul>
