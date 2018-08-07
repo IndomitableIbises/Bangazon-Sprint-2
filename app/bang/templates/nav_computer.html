@@ -1,0 +1,13 @@
+<h3>Computer Sub Navigation</h3>
+<nav>
+    {% if nav_location != 'computers' %}
+        <form action='/bang/computers' method='GET'>
+            <input type='submit' value='Home'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'computers_form' %}
+        <form action='/bang/computers/add' method='GET'>
+            <input type='submit' value='Add New'>
+        </form>
+    {% endif %}
+</nav>
