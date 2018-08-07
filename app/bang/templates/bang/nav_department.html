@@ -1,0 +1,13 @@
+<h3>Department Sub Navigation</h3>
+<nav>
+    {% if nav_location != 'departments' %}
+        <form action='/bang/departments' method='GET'>
+            <input type='submit' value='Home'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'departments_form' %}
+        <form action='/bang/departments/add' method='GET'>
+            <input type='submit' value='Add New'>
+        </form>
+    {% endif %}
+</nav>

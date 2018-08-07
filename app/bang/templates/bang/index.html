@@ -2,7 +2,9 @@
 
 <h1>Welcome to BANGAZON!</h1>
 
+
 {% block main_stuff %}
+  {% include "bang/navbar.html" with nav_location=view.location %}
   {% comment %} Including nav_bar in each template so we can pass the location to it each time {% endcomment %}
 TRA LA LA LA LA LA LA
 {% endblock main_stuff %}

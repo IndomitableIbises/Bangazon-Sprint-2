@@ -1,10 +1,8 @@
 <!-- Author: Raf -->
-{% extends "bang/index.html" %}
-
+{% extends 'bang/index.html' %}
 {% block main_stuff %}
 
-
-
+  {% include "bang/navbar.html" with nav_location=location %}
   <h1>These Are Departments from DepartmentListView </h1>
 
   <ul>
