@@ -1,2 +1,2 @@
-from .computer_view import ComputerListView
 from .department_view import DepartmentListView
+from .computer_view import ComputerListView

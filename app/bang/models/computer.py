@@ -4,7 +4,8 @@ from django.db import models
 
 class Computer(models.Model):
     """ Model represents employee computers"""
-    name = models.CharField(max_length=30)
+    make = models.CharField(max_length=30)
+    manufacturer = models.CharField(max_length=30)
     purchase_date = models.DateField()
     decom_date = models.DateField()
     employee = models.ForeignKey(
@@ -16,4 +17,4 @@ class Computer(models.Model):
         db_table = "computer"
 
     def __str__(self):
-        return self.name
+        return self.make
