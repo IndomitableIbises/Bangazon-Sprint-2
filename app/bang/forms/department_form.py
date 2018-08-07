@@ -5,4 +5,4 @@ from bang.models import Department
 class DepartmentForm(forms.ModelForm):
     class Meta:
         model = Department
-        fields = ['name']
+        fields = ['dept_name']
