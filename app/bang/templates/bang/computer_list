@@ -1,7 +1,7 @@
 {% extends 'bang/index.html' %}
 
-{% block content %}
-{% include 'bang/nav_bar.html' with nav_location=location %}
+{% block main_stuff %}
+{% include 'bang/navbar.html' with nav_location=location %}
 
 <h1>Computer List</h1>
 
@@ -10,7 +10,7 @@
     {% for computer in computer_list %}
         <li>
             <h2>
-                <a href="{% url 'computer_detail' computer.id %}">{{computer.make}}, {{computer.manufacturer}}
+                <a href="{% url 'bang:computer_detail' computer.id %}">{{computer.make}}, {{computer.manufacturer}}
                 </a>
             <h2>
         </li>
@@ -19,4 +19,4 @@
 {% else %}
     <p>No computers are saved.</p>
 {% endif %}
-{% endblock content %}
+{% endblock main_stuff %}
