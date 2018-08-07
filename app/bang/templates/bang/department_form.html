@@ -7,6 +7,10 @@
 
 <h3>Add a new Department</h3>
 
-Placeholder Text
+<form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save Department">
+  </form>
 
 {% endblock main_stuff %}
