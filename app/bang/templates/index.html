@@ -1,0 +1,12 @@
+<!-- Author: Raf -->
+
+<!-- If we want to inlude CSS down the road -->
+<!-- {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bang/index.css' %}" /> -->
+
+<h1>Welcome to BANGAZON!</h1>
+
+{% block main_stuff %}
+  {% comment %} Including nav_bar in each template so we can pass the location to it each time {% endcomment %}
+  {% include "bang/navbar.html" with nav_location=view.location %}
+{% endblock main_stuff %}

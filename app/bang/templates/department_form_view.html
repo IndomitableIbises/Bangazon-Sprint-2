@@ -1,0 +1,14 @@
+<!-- Author: Raf -->
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+
+  {% include "bang/navbar.html" with nav_location=location %}
+
+<h3>Add a new Department</h3>
+
+<form method='post'>
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Save Department">
+</form>

@@ -1,0 +1,12 @@
+<!-- Author: Raf -->
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+
+  {% include "bang/navbar.html" with nav_location=location %}
+
+<h1>This is a Department</h1>
+
+<h2>{{department.dept_name}}</h2>
+
+<!-- Maybe we'll want to show all the employees in each department? -->
