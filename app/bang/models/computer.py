@@ -1,5 +1,6 @@
 #Author: Erin Agobert
 from django.db import models
+from .employees import Employees
 
 
 class Computer(models.Model):
@@ -9,7 +10,7 @@ class Computer(models.Model):
     purchase_date = models.DateField()
     decom_date = models.DateField()
     employee = models.ForeignKey(
-        'Employee',
+        'Employees',
         on_delete = models.CASCADE
     )
 
