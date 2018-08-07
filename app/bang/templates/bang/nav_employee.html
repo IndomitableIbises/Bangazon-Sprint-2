@@ -1,0 +1,13 @@
+<h3>Employee Sub Navigation</h3>
+<nav>
+    {% if nav_location != 'employees' %}
+        <form action='/bang/employees' method='GET'>
+            <input type='submit' value='Home'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'employees_form' %}
+        <form action='/bang/employees/add' method='GET'>
+            <input type='submit' value='Add New'>
+        </form>
+    {% endif %}
+</nav>

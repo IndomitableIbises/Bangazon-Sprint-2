@@ -1,0 +1,39 @@
+<nav>
+    {% if nav_location != 'home' %}
+        <form action='/bang/' method='GET'>
+            <input type='submit' value='Home'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'computers' %}
+        <form action='/bang/computers' method='get'>
+            <input type='submit' value='Computers'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'departments' %}
+        <form action='/bang/departments' method='get'>
+            <input type='submit' value='Departments'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'employees' %}
+        <form action='/bang/employees' method='get'>
+            <input type='submit' value='Employees'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'training' %}
+        <form action='/bang/training' method='get'>
+            <input type='submit' value='Training'>
+        </form>
+    {% endif %}
+    {% if nav_location == 'computers' %}
+        {% include "bang/nav_computer.html" with nav_location=location %}
+    {% endif %}
+    {% if nav_location == 'departments' %}
+        {% include "bang/nav_department.html" with nav_location=location %}
+    {% endif %}
+    {% if nav_location == 'employees' %}
+        {% include "bang/nav_employee" with nav_location=location %}
+    {% endif %}
+    {% if nav_location == 'training' %}
+        {% include "bang/nav_training.html" with nav_location=location %}
+    {% endif %}
+</nav>
