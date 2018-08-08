@@ -5,9 +5,9 @@
 <h1>These Are Made Up Programs from TrainingListTemplateView </h1>
 
 <ul>
-  {% for trainings in training_list %}
+  {% for training in training_list %}
     <li>
-      {{trainings.name}}
+      <a href="{% url 'bang:training_detail' training.id %}">{{training.name}}</a>
     </li>
   {% endfor %}
 </ul>

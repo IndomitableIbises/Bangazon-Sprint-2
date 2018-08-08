@@ -1,6 +1,8 @@
 #Sean Irwin
 from django.db import models
+import datetime
 
+now = datetime.datetime.now()
 
 class Training(models.Model):
     name = models.CharField(default="", max_length=30)
@@ -9,9 +11,9 @@ class Training(models.Model):
     end_date = models.DateField(blank=True, null=True)
     max_attendees = models.IntegerField(default=1)
 
-
     class Meta:
         db_table = "training"
 
     def __str__(self):
         return self.name
+
