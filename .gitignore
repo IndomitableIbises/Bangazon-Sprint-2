@@ -1,4 +1,4 @@
 *.pyc
 db.sqlite3
 app/bang/migrations/
-django_data.sh
+app/django_data.sh
