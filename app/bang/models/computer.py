@@ -8,10 +8,11 @@ class Computer(models.Model):
     make = models.CharField(max_length=30)
     manufacturer = models.CharField(max_length=30)
     purchase_date = models.DateField()
-    decom_date = models.DateField()
+    decom_date = models.DateField(blank=True)
     employee = models.ForeignKey(
         'Employees',
-        on_delete = models.CASCADE
+        on_delete = models.CASCADE,
+        blank=True
     )
 
     class Meta:
