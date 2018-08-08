@@ -18,3 +18,4 @@
 1. [OPTIONAL: if you would like to seed the database with dummy data from the 'app' directory run `django_data.sh bang faker_factory`]
 1. to run the server cd into the 'app' directory and run `python manage.py runserver`
 1. Visit the [localhost page](http://127.0.0.1:8000/bang/ "Default Django local URL") specified by the terminal
++ [*NOTE*: windows gitbash users will need to add the django_data to the root app directory and use `./django_data.sh bang faker_factory`] 
