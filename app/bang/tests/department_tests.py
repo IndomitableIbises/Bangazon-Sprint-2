@@ -30,3 +30,17 @@ class DepartmentTest(TestCase):
         # If the string is: pythön!
         # The encoded version is: b'pyth\xc3\xb6n!'
         self.assertIn(new_department.dept_name.encode(), response.content)
+
+    def test_get_department_form(self):
+
+      response = self.client.get(reverse('bang:departments_form'))
+
+      self.assertIn(
+          '<input type="text" dept_name="name" maxlength="100" required id="id_dept_name" />'.encode(), response.content)
+
+    def test_post_department(self):
+
+      response = self.client.post(reverse('bang:departments_form'), {'dept_name': 'Department of Poopland Security'})
+
+      # Getting 301 back because we have a success url and the view is redirecting under the covers?
+      self.assertEqual(response.status_code, 301)
