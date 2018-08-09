@@ -1,0 +1,16 @@
+<!-- Author: Hayley / Levi -->
+{% extends 'bang/index.html' %}
+{% block main_stuff %}
+
+  {% include "bang/navbar.html" with nav_location=location %}
+  <h1>These Are Employees from EmployeesListView </h1>
+
+  <ul>
+    {% for employees in employees_list %}
+    <li>
+      <a href="{% url 'bang:employees_detail' employees.id %}">{{employees.first_name}} {{employees.last_name}} </a>
+      <!-- placehold text would go here -->
+    </li>
+    {% endfor %}
+  </ul>
+{% endblock main_stuff %}

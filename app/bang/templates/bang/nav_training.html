@@ -1,0 +1,13 @@
+<h3>Training Sub Navigation</h3>
+<nav>
+    {% if nav_location != 'training' %}
+        <form action='/bang/training' method='GET'>
+            <input type='submit' value='Home'>
+        </form>
+    {% endif %}
+    {% if nav_location != 'training_list' %}
+        <form action='/bang/training/add' method='GET'>
+            <input type='submit' value='Add New'>
+        </form>
+    {% endif %}
+</nav>

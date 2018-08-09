@@ -1,0 +1,16 @@
+<!-- Author: Hayley-->
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+
+
+
+<h3>Add a new Employee</h3>
+
+<form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Save Employee">
+  </form>
+
+{% endblock main_stuff %}
