@@ -7,7 +7,6 @@ class Computer(models.Model):
     make = models.CharField(max_length=30)
     manufacturer = models.CharField(max_length=30)
     purchase_date = models.DateField()
-    decom_date = models.DateField()
 
     class Meta:
         db_table = "computer"
