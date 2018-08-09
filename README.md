@@ -6,9 +6,9 @@ This application is intended to manage the internal structure of the fictional B
 
 ## Table of Contents
 
-[Installation](#Installation) <br>
-[Tables](#Tables) <br>
-[Usage](#Usage) <br>
+[Installation](#Installation)  
+[Tables](#Tables)  
+[Usage](#Usage)  
 
 
 # Installation
