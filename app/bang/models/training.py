@@ -11,9 +11,9 @@ class Training(models.Model):
     max_attendees = models.IntegerField(default=1)
     attendees = models.ManyToManyField(Employees)
 
-
     class Meta:
         db_table = "training"
 
     def __str__(self):
         return self.name
+
