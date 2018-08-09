@@ -2,7 +2,7 @@
 from django.db import models
 from . import Employees
 
-
+#lays out basics of all training events and links it to employees with a many to many table with employees
 class Training(models.Model):
     name = models.CharField(default="", max_length=30)
     description = models.CharField(default="", max_length=100)

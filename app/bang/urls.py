@@ -5,6 +5,7 @@ from . import views
 
 app_name = 'bang'
 urlpatterns = [
+#TRAINING PATHS by Sean
     path('training/', training_view.TrainingListView.as_view(), name='training'),
     path('training_detail/<int:pk>/', training_view.TrainingDetailView.as_view(), name='training_detail'),
     path('training_detail/<int:pk>/training_delete/', training_view.TrainingDeleteView.as_view(), name='training_delete'),

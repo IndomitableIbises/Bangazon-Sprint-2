@@ -6,11 +6,13 @@ from bang.forms import TrainingForm
 import datetime
 from django.http import Http404, HttpResponseRedirect
 # from .forms import -- Forms will be imported here
+
+#creates an instance of current date to compare event date with and restrict deletion
 now = datetime.date.today()
 
 
 
-    
+#creates a reference to link template of html and model to the database and actual object information
 class TrainingListView(ListView):
     """
     API endpoint that allows TRAINING to be viewed.
@@ -31,6 +33,8 @@ class TrainingDeleteView(DeleteView):
     model = Training
     success_url = "/bang/training"
 
+    #changes default behavior of delete to disqualify past events from deletion
+
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         if (self.object.end_date > now):
@@ -43,6 +47,7 @@ class TrainingFormView(FormView):
     """
     API endpoint that allows an employee form to be viewed and edited.
     """
+
     template_name = 'bang/training_form.html'
     form_class = TrainingForm
     success_url = '/bang/training/'
@@ -55,6 +60,8 @@ class TrainingFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super(TrainingFormView, self).form_valid(form)
+
+    
 
     
 
