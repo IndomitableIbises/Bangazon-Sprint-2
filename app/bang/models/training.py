@@ -1,8 +1,7 @@
 #Sean Irwin
 from django.db import models
-import datetime
+from . import Employees
 
-now = datetime.datetime.now()
 
 class Training(models.Model):
     name = models.CharField(default="", max_length=30)
@@ -10,6 +9,7 @@ class Training(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     max_attendees = models.IntegerField(default=1)
+    attendees = models.ManyToManyField(Employees)
 
     class Meta:
         db_table = "training"
