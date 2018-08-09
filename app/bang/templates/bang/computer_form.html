@@ -1,0 +1,16 @@
+<!-- Author: Erin -->
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+
+
+
+<h3>Add a new Computer</h3>
+
+<form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Assign Computer">
+  </form>
+
+{% endblock main_stuff %}
