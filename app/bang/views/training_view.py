@@ -28,10 +28,12 @@ class TrainingListView(ListView):
 
 class TrainingDetailView(DetailView):
     model = Training
+    context_object_name = 'training_detail'
     
 class TrainingDeleteView(DeleteView):
     model = Training
     success_url = "/bang/training"
+    context_object_name = 'training_delete'
 
     #changes default behavior of delete to disqualify past events from deletion
 

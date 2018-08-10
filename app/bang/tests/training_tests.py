@@ -33,3 +33,6 @@ class TrainingTest(TestCase):
         # If the string is: pythön!
         # The encoded version is: b'pyth\xc3\xb6n!'
         self.assertIn(new_training.name.encode(), response.content)
+
+
+    #    context - training_details and training_delete
