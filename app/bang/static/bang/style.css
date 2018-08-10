@@ -1,0 +1,47 @@
+.header{
+    text-align: center;
+}
+
+.app_description{
+    margin: 8px auto;
+    text-align: justify;
+    width: 45%;
+}
+
+.app_description p{
+    font-size:14pt;
+}
+
+nav{
+    width:100%;
+    display: flex;
+    align-content: center;
+}
+
+.main_nav{
+    list-style-type: none;
+    display: flex;
+    margin: 8px auto;
+    padding-left:0px;
+}
+
+.main_nav li{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.sub {
+    text-align: center;
+}
+
+.sub_nav{
+    list-style-type: none;
+    display: flex;
+    margin: 8px auto;
+    padding-left:0px;
+}
+
+.sub_nav li{
+    margin-left: 8px;
+    margin-right: 8px;
+}
