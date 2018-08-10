@@ -9,6 +9,7 @@ This application is intended to manage the internal structure of the fictional B
 [Installation](#installation)  
 [Tables](#tables)  
 [Usage](#usage)  
+[Contributors](#contributors)  
 
 
 # Installation
@@ -83,3 +84,10 @@ after opening the [application url/bang](http://127.0.0.1:8000/bang/ "Default Dj
 1. View the details of individual training programs which should also list the employees enrolled in it.
 1. Edit the details of a training program that **has yet to begin**
 1. Delete training programs that **has yet to begin**
+
+# Contributors
+- [Erin Agobert](https://github.com/eagobert)
+- [Raf Cevallos](https://github.com/rafcevallos)
+- [Sean Irwin](https://github.com/sirwin4)
+- [Hayley Landsberg](https://github.com/hayleylandsberg)
+- [Levi Schubert](https://github.com/Levi-Schubert)
