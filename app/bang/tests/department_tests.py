@@ -5,6 +5,13 @@ from django.urls import reverse
 from bang.models import Department
 
 
+"""
+This has all tests for DEPARTMENT:
+    -Department List test
+    -Department Form Test
+    -Department Post Test
+"""
+
 class DepartmentTest(TestCase):
 
     def test_list_department(self):
