@@ -1,29 +1,41 @@
 <nav>
+    <ul class='main_nav'>
     {% if nav_location != 'home' %}
+        <li>
         <form action='/bang/' method='GET'>
             <input type='submit' value='Home'>
         </form>
+        </li>
     {% endif %}
     {% if nav_location != 'computers' %}
+        <li>
         <form action='/bang/computers' method='get'>
             <input type='submit' value='Computers'>
         </form>
+        </li>
     {% endif %}
     {% if nav_location != 'departments' %}
+        <li>    
         <form action='/bang/departments' method='get'>
             <input type='submit' value='Departments'>
         </form>
+        </li>
     {% endif %}
     {% if nav_location != 'employees' %}
+        <li>
         <form action='/bang/employees' method='get'>
             <input type='submit' value='Employees'>
         </form>
+        </li>
     {% endif %}
     {% if nav_location != 'training' %}
+        <li>
         <form action='/bang/training' method='get'>
             <input type='submit' value='Training'>
         </form>
+        </li>
     {% endif %}
+    </ul>
     {% if nav_location == 'computers' %}
         {% include "bang/nav_computer.html" with nav_location=location %}
     {% endif %}

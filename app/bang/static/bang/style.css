@@ -1,0 +1,21 @@
+.header{
+    text-align: center;
+}
+
+nav{
+    width:100%;
+    display: flex;
+    align-content: center;
+}
+
+.main_nav{
+    list-style-type: none;
+    display: flex;
+    margin: 8px auto;
+    padding-left:0px;
+}
+
+.main_nav li{
+    margin-left: 8px;
+    margin-right: 8px;
+}
