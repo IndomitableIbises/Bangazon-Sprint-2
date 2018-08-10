@@ -10,7 +10,7 @@
     {% for computer in computer_list %}
         <li>
             <h2>
-                <a href="{% url 'bang:computer_detail' computer.id %}">{{computer.make}}, {{computer.manufacturer}}
+                <a href="{% url 'bang:computer_detail' computer.id %}">{{computer.make}} {{computer.model}}
                 </a>
             <h2>
         </li>

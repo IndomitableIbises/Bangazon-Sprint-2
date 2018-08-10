@@ -6,7 +6,13 @@
 <h1>This is a Computer</h1>
 
 <h2>{{computer.make}}</h2>
-<h2>{{computer.manufacturer}}</h2>
+<h2>{{computer.model}}</h2>
 <h2>{{computer.purchase_date}}</h2>
+
+{% for employee in computer.employees_set.all %}
+<h2>Assigned Employee:  {{employee.first_name}} {{employee.last_name}}</h2>
+{% endfor %}
+
+<p><a href="{% url 'bang:computer_delete' computer.id %}">Delete</a></p>
 
 {% endblock main_stuff %}

@@ -8,7 +8,7 @@ class Employees(models.Model):
     start_date = models.DateField()
     supervisor = models.BooleanField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE,)
-    computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True, related_name='employees_computer')
+    computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True,)
 
     class Meta:
         db_table = 'employees'

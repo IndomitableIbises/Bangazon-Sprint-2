@@ -14,6 +14,7 @@ urlpatterns = [
     path('computers/', views.ComputerListView.as_view(), name='computer_list'),
     path('computers/<int:pk>/', views.ComputerDetailView.as_view(), name='computer_detail'),
     path('computers/add/', views.ComputerFormView.as_view(), name='computer_form'),
+    path('computers/<int:pk>/computer_delete/', views.ComputerDeleteView.as_view(), name='computer_delete'),
 ##########
 # DEPARTMENT PATHS by Raf
     path('departments/', views.DepartmentListView.as_view(), name='departments'),
