@@ -1,8 +1,17 @@
-<h1>Test</h1>
+<h>TEST</h>
+{% for employee in computer.employees_set.all %}
 
-<form method="post">{% csrf_token %}
+
+<p>You cannot delete this computer.  Please return to :  <a href="{% url 'bang:computer_list' %}">Computer List </a> and choose an unassigned computer</p>
+
+{% empty %}
+
+    <form method="post">
+    
+    {% csrf_token %}
+
     <p>Are you sure you want to delete "{{ computer.make }} {{ computer.model}}"?</p>
     <input type="submit" value="Confirm">
-</form>
+    </form>
 
-
+{% endfor %}
