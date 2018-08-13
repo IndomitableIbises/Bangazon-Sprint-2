@@ -4,7 +4,13 @@ from django.views.generic import ListView, FormView, DetailView, CreateView, Del
 from bang.models import Training
 from bang.forms import TrainingForm
 import datetime
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
+from django.core.exceptions import ImproperlyConfigured
+from django.forms import models as model_forms
+from django.views.generic.base import ContextMixin, TemplateResponseMixin, View
+from django.views.generic.detail import (
+    BaseDetailView, SingleObjectMixin, SingleObjectTemplateResponseMixin,
+)
 # from .forms import -- Forms will be imported here
 
 #creates an instance of current date to compare event date with and restrict deletion
@@ -28,22 +34,60 @@ class TrainingListView(ListView):
 
 class TrainingDetailView(DetailView):
     model = Training
-    context_object_name = 'training_detail'
     
-class TrainingDeleteView(DeleteView):
-    model = Training
+    
+
+class DeletionMixin:
+    """Provide the ability to delete objects."""
+    success_url = None
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Call the delete() method on the fetched object and then redirect to the
+        success URL.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        if (self.object.end_date > now):
+            self.object.delete()
+            return HttpResponseRedirect(success_url)
+        else:
+            return HttpResponseRedirect(success_url)
+
+    # Add support for browsers which only accept GET and POST for now.
+    def post(self, request, *args, **kwargs):
+        return self.delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        if self.success_url:
+            return self.success_url.format(**self.object.__dict__)
+        else:
+            raise ImproperlyConfigured(
+                "No URL to redirect to. Provide a success_url.")
+
+class DeleteEnabledDetailView(DeletionMixin, TrainingDetailView):
     success_url = "/bang/training"
     context_object_name = 'training_delete'
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        return self.render_to_response(context)
+
+# class TrainingDeleteView(DeleteView):
+#     model = Training
+#     success_url = "/bang/training"
+#     context_object_name = ''
+
     #changes default behavior of delete to disqualify past events from deletion
 
-    def delete(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        if (self.object.end_date > now):
-            return super(TrainingDeleteView, self).delete(
-                request, *args, **kwargs)
-        else:
-            raise Http404("Object you are looking for doesn't exist")
+    # def delete(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     if (self.object.end_date > now):
+    #         return super(TrainingDeleteView, self).delete(
+    #             request, *args, **kwargs)
+    #     else:
+    #         raise Http404("Object you are looking for doesn't exist")
 
 class TrainingFormView(FormView):
     """

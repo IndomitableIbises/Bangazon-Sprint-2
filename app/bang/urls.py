@@ -8,10 +8,10 @@ urlpatterns = [
 #TRAINING PATHS by Sean
     path('training/', training_view.TrainingListView.as_view(), name='training'),
     path('training_detail/<int:pk>/', training_view.TrainingDetailView.as_view(), name='training_detail'),
-    path('training_detail/<int:pk>/training_delete/', training_view.TrainingDeleteView.as_view(), name='training_delete'),
+    path('training_detail/<int:pk>/training_delete/', training_view.DeleteEnabledDetailView.as_view(), name='training_delete'),
     path('training/add/', training_view.TrainingFormView.as_view(), name='training_form'),
     path('', views.IndexView.as_view(), name = 'index'),
-##########
+########## 
 # COMPUTER PATHS by Erin
     path('computers/', views.ComputerListView.as_view(), name='computer_list'),
     path('computers/<int:pk>/', views.ComputerDetailView.as_view(), name='computer_detail'),

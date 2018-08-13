@@ -7,6 +7,16 @@
 <h1>Training Details</h1>
 
 <h2>{{training.name}}</h2>
-<p><a href="{% url 'bang:training_delete' training.id %}">Delete</a></p>
+
+<p>{{training.start_date}}</p>
+<p>{{training.end_date}}</p>
+<p>{{training.description}}</p>
+<p>{{training.max_attendees}}</p>
+
+<form action="{% url 'bang:training_delete' pk=training.id %}" method='post'>
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+<!-- <p><a href="{% url 'bang:training_delete' training.id %}">Delete</a></p> -->
 
 {% endblock main_stuff %}

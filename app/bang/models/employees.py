@@ -1,6 +1,7 @@
 from django.db import models
 from .department import Department
 from .computer import Computer
+from .training import Training
 
 class Employees(models.Model):
     first_name = models.CharField(max_length=100)
@@ -9,6 +10,7 @@ class Employees(models.Model):
     supervisor = models.BooleanField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='employees_department')
     computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True, related_name='employees_computer')
+    trainings = models.ManyToManyField(Training)
 
     class Meta:
         db_table = 'employees'
