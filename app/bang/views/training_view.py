@@ -112,6 +112,24 @@ class TrainingUpdate(UpdateView):
     fields = ['name', 'description', 'start_date', 'end_date', 'max_attendees']
     success_url = '/bang/training/'
     
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if (self.object.end_date > now):
+            return super().post(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Call the delete() method on the fetched object and then redirect to the
+        success URL.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        if (self.object.end_date > now):
+            self.object.delete()
+            return HttpResponseRedirect(success_url)
+        else:
+            return HttpResponseRedirect(success_url)
+
 
     
 
