@@ -10,6 +10,13 @@
 <h3>Department: {{employees.department}}</h3>
 <h3>Start Date: {{employees.start_date}}</h3>
 <h3>Computer: {{employees.computer}} </h3>
+<ul>
+{% for training in employees.training.all %}
+    <li>
+        <h3>Training: {{training.name}}</h3>
+    </li>
+{% endfor %}
+</ul>
 <p><a href="{% url 'bang:employees_edit' employees.id %}">Edit</a></p>
 
 {% endblock main_stuff %}
