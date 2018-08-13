@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from .department import Department
 from .computer import Computer
 
@@ -15,3 +16,7 @@ class Employees(models.Model):
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+
+# Author: Raf
+    def get_absolute_url(self):
+        return reverse("bang:employees_detail", kwargs={"pk": self.pk})

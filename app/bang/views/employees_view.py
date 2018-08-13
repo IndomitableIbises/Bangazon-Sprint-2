@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, FormView, DetailView, CreateView
+from django.views.generic import ListView, FormView, DetailView, UpdateView
 from bang.models import Employees
 
-from bang.forms import EmployeesForm
+from bang.forms import EmployeesForm, EmployeesEditForm
 
 class EmployeesListView(ListView):
     model = Employees
@@ -29,6 +29,21 @@ class EmployeesFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super(EmployeesFormView, self).form_valid(form)
+
+########
+# Author: Raf - Edit view
+class EmployeesEditView(UpdateView):
+    '''
+    API endpoint that allows an employee to be edited
+    '''
+    model = Employees
+    form_class = EmployeesEditForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['location'] = 'employees_edit'
+        context['title_action'] = 'Edit an employee'
+        return context
 
 class EmployeesDetailView(DetailView):
     model = Employees
