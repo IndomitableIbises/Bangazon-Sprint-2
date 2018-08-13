@@ -110,7 +110,7 @@ class TrainingFormView(FormView):
 class TrainingUpdate(UpdateView):
     model = Training
     fields = ['name', 'description', 'start_date', 'end_date', 'max_attendees']
-    success_url = '/bang/training/'
+    
     
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
