@@ -1,16 +1,19 @@
 <!-- Author: Raf -->
-{% extends "bang/index.html" %}
-
+{% extends "bang/index.html" %} 
 {% block main_stuff %}
 
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'bang/department.css' %}"> 
 
-<h3>Add a new Department</h3>
+<div class='department_form'>
+    <h3>Add a new Department</h3>
 
-<form method='post'>
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Save Department">
-  </form>
-
+    <form method='post'>
+        {% csrf_token %} 
+        {{ form }}
+        <br>
+        <input type="submit" value="Save Department">
+    </form>
+</div>
 {% endblock main_stuff %}
