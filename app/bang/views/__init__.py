@@ -3,4 +3,4 @@ from .department_view import DepartmentListView, DepartmentFormView, DepartmentD
 from .computer_view import ComputerListView, ComputerDetailView, ComputerFormView, ComputerDeleteView
 from .training_view import TrainingListView
 
-from .employees_view import EmployeesListView, EmployeesDetailView, EmployeesFormView
+from .employees_view import EmployeesListView, EmployeesDetailView, EmployeesFormView, EmployeesEditView
