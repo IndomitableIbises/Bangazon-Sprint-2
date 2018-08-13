@@ -36,6 +36,8 @@
         </li>
     {% endif %}
     </ul>
+</nav>
+<div class='sub'>
     {% if nav_location == 'computers' %}
         {% include "bang/nav_computer.html" with nav_location=location %}
     {% endif %}
@@ -48,4 +50,4 @@
     {% if nav_location == 'training' %}
         {% include "bang/nav_training.html" with nav_location=location %}
     {% endif %}
-</nav>
+</div>

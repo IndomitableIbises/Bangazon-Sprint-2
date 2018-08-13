@@ -9,7 +9,9 @@
 </div>
 
 {% block main_stuff %}
-  {% include "bang/navbar.html" with nav_location=view.location %}
-  {% comment %} Including nav_bar in each template so we can pass the location to it each time {% endcomment %}
-TRA LA LA LA LA LA LA
+    {% include "bang/navbar.html" with nav_location=view.location %}
+    {% comment %} Including nav_bar in each template so we can pass the location to it each time {% endcomment %}
+    <div class='app_description'>
+        <p>This application is intended to manage the internal structure of the fictional Bangazon LLC. It is used for handling the database the stores details of the departments, employees, computers, and training programs available to the organization. It is built using Python, Django, and SQLite3.</p>
+    </div>
 {% endblock main_stuff %}
