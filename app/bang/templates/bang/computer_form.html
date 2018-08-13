@@ -3,14 +3,21 @@
 
 {% block main_stuff %}
 
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'bang/computer.css' %}">
 
-<h3>Add a new Computer</h3>
+<div class='computer_form'>
 
-<form method='post'>
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Assign Computer">
-  </form>
+    <h3>Add a new Computer</h3>
+
+    <form method='post'>
+        {% csrf_token %}
+        {{ form }}
+        <br>
+        <input type="submit" value="Assign Computer">
+    </form>
+
+</div>
 
 {% endblock main_stuff %}

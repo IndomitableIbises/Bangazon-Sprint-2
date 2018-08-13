@@ -35,11 +35,18 @@ h1{
     padding: 4px;
     border-radius: 4px;
     border: 1px solid grey;
-    height: 56px;
+    height: 64px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+
 }
 
 .computer_card p{
+    width: 100%;
     margin-top:4px;
+    margin-bottom: 0px;
 }
 
 .float_clear{
@@ -74,4 +81,35 @@ h1{
 }
 .delete p{
     margin-top: 6px;
+}
+
+/* Computer Form CSS */
+
+.computer_form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.computer_form label::before{
+    content: "\A";
+    white-space: pre;
+    margin-top: 8px;
+    margin-left: auto;
+}
+
+.computer_form input{
+    margin-top:8px;
+    margin-right:auto;
+}
+
+/* Computer Delete CSS */
+
+.computer_delete{
+    width: 90%;
+    margin:0 auto;
+    text-align: center;
 }
