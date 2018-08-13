@@ -1,6 +1,6 @@
 #Sean Irwin
 from django.shortcuts import get_object_or_404, render
-from django.views.generic import ListView, FormView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, FormView, DetailView, CreateView, DeleteView, UpdateView
 from bang.models import Training
 from bang.forms import TrainingForm
 import datetime
@@ -107,6 +107,10 @@ class TrainingFormView(FormView):
         form.save()
         return super(TrainingFormView, self).form_valid(form)
 
+class TrainingUpdate(UpdateView):
+    model = Training
+    fields = ['name', 'description', 'start_date', 'end_date', 'max_attendees']
+    success_url = '/bang/training/'
     
 
     

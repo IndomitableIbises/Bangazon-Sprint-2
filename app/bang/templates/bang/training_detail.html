@@ -13,10 +13,20 @@
 <p>{{training.description}}</p>
 <p>{{training.max_attendees}}</p>
 
+<p><a href="{% url 'bang:training_edit' training.id %}">edit</a></p>
+
 <form action="{% url 'bang:training_delete' pk=training.id %}" method='post'>
     {% csrf_token %}
     <input type="submit" value="Delete">
 </form>
+
+<h2>Employee - Training</h2>
+{% for training_relationship in training.employees_set.all %}
+    <li>{{training_relationship}}</li>
+{% endfor %}
+
+
+
 <!-- <p><a href="{% url 'bang:training_delete' training.id %}">Delete</a></p> -->
 
 {% endblock main_stuff %}

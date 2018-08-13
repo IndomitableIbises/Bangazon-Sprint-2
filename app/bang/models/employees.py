@@ -9,14 +9,11 @@ class Employees(models.Model):
     last_name = models.CharField(max_length=100)
     start_date = models.DateField()
     supervisor = models.BooleanField()
-<<<<<<< HEAD
     department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='employees_department')
     computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True, related_name='employees_computer')
     trainings = models.ManyToManyField(Training)
-=======
-    department = models.ForeignKey(Department, on_delete=models.CASCADE,)
-    computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True,)
->>>>>>> af989b428e69ff8eef3efa17c3e9ee167f0b1a44
+    
+
 
     class Meta:
         db_table = 'employees'
