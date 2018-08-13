@@ -3,19 +3,29 @@
 {% block main_stuff %}
 {% include 'bang/navbar.html' with nav_location=location %}
 
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bang/computer.css' %}">
+
+
 <h1>Computer List</h1>
 
 {% if computer_list %}
-    <ul>
+<div class='container'>
+    <ul class='computer_ul'>
     {% for computer in computer_list %}
         <li>
-            <h2>
-                <a href="{% url 'bang:computer_detail' computer.id %}">{{computer.make}} {{computer.model}} {{computer.purchase_date}}
-                </a>
-            <h2>
+            <a href="{% url 'bang:computer_detail' computer.id %}">
+                <div class='computer_card'>
+                    <p>{{computer.make}} {{computer.model}}</p>
+                    <p>{{computer.purchase_date}}</p>
+                </div>
+            </a>
         </li>
     {% endfor %}
     </ul>
+    <div class='float_clear'></div>
+</div>
 {% else %}
     <p>No computers are saved.</p>
 {% endif %}

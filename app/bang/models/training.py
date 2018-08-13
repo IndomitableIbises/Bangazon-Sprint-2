@@ -1,6 +1,6 @@
 #Sean Irwin
 from django.db import models
-from . import Employees
+# from . import Employees
 
 
 class Training(models.Model):
@@ -9,11 +9,10 @@ class Training(models.Model):
     start_date = models.DateField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
     max_attendees = models.IntegerField(default=1)
-    attendees = models.ManyToManyField(Employees)
+    # attendees = models.ManyToManyField(Employees)
 
     class Meta:
         db_table = "training"
 
     def __str__(self):
         return self.name
-
