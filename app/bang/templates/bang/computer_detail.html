@@ -3,16 +3,28 @@
 
 {% block main_stuff %}
 {% include "bang/navbar.html" with nav_location=location %}
-<h1>This is a Computer</h1>
 
-<h2>{{computer.make}}</h2>
-<h2>{{computer.model}}</h2>
-<h2>{{computer.purchase_date}}</h2>
 
-{% for employee in computer.employees_set.all %}
-<h2>Assigned Employee:  {{employee.first_name}} {{employee.last_name}}</h2>
-{% endfor %}
+{% load static %}
 
-<p><a href="{% url 'bang:computer_delete' computer.id %}">Delete</a></p>
+<link rel="stylesheet" type="text/css" href="{% static 'bang/computer.css' %}">
 
+<div class='computer_detail'>
+    <h1>Computer {{computer.id}}</h1>
+
+    <h2>Make: {{computer.make}}</h2>
+    <h2>Model: {{computer.model}}</h2>
+    <h2>Purchase Date: {{computer.purchase_date}}</h2>
+
+    {% for employee in computer.employees_set.all %}
+    <h2>Assigned Employee:  {{employee.first_name}} {{employee.last_name}}</h2>
+    {% endfor %}
+    <div class='delete_div'>
+    <a href="{% url 'bang:computer_delete' computer.id %}">
+        <div class='delete'>
+            <p>Delete</p>
+        </div>
+    </a>
+    </div>
+</div>
 {% endblock main_stuff %}
