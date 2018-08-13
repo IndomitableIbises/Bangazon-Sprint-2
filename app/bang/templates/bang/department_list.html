@@ -9,7 +9,6 @@
     {% for department in department_list %}
     <li>
       <a href="{% url 'bang:department_detail' department.id %}">{{department.dept_name}}</a>
-      Placeholder Text
     </li>
     {% endfor %}
   </ul>

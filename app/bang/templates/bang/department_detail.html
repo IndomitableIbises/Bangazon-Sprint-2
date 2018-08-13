@@ -2,9 +2,16 @@
 {% extends "bang/index.html" %}
 
 {% block main_stuff %}
+{% include "bang/navbar.html" with nav_location=location %}
 
-<h1>Department Name: {{department.dept_name}}</h1>
+<h1>DEPARTMENT OF: {{department.dept_name}}</h1>
 
+<h2> These are the EMPLOYEES in: {{department.dept_name}} </h2>
+<ul>
+    {% for employee in department.employees_set.all %}
+    <li>
+        {{employee.first_name}} {{employee.last_name}}
+    </li>
+    {% endfor %}
+</ul>
 {% endblock main_stuff %}
-
-<!-- Maybe we'll want to show all the employees in each department? -->

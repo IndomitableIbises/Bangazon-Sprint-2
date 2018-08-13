@@ -3,13 +3,15 @@
 
 {% block main_stuff %}
 
-
+{% include "bang/navbar.html" with nav_location=location %}
 <h1>Employee Profile</h1>
 
 <h2>Name: {{employees.first_name}} {{employees.last_name}}</h2>
 <h3>Department: {{employees.department}}</h3>
 <h3>Start Date: {{employees.start_date}}</h3>
 <h3>Computer: {{employees.computer}} </h3>
+<p><a href="{% url 'bang:employees_edit' employees.id %}">Edit</a></p>
+
 {% endblock main_stuff %}
 
 <!-- Maybe we'll want to show all the employees in each department? -->

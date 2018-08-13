@@ -1,5 +1,8 @@
 #Author: Erin Agobert
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView, FormView
+from django.views.generic.edit import DeleteView
 from bang.models import Computer
 from bang.forms import ComputerForm
 
@@ -34,3 +37,15 @@ class ComputerFormView(FormView):
     def form_valid(self, form):
         form.save()
         return super(ComputerFormView, self).form_valid(form)
+
+class ComputerDeleteView(DeleteView):
+    """ View represents deleting an employee """
+    model = Computer
+    template_name = 'bang/computer_confirm_delete.html'
+    success_url = '/bang/computers'
+
+    def delete(self, request, *args, **kwargs):
+        """ Calls the delete method """
+        self.object = self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.get_success_url())

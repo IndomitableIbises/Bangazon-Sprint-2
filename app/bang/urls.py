@@ -16,6 +16,7 @@ urlpatterns = [
     path('computers/', views.ComputerListView.as_view(), name='computer_list'),
     path('computers/<int:pk>/', views.ComputerDetailView.as_view(), name='computer_detail'),
     path('computers/add/', views.ComputerFormView.as_view(), name='computer_form'),
+    path('computers/<int:pk>/computer_delete/', views.ComputerDeleteView.as_view(), name='computer_delete'),
 ##########
 # DEPARTMENT PATHS by Raf
     path('departments/', views.DepartmentListView.as_view(), name='departments'),
@@ -25,5 +26,6 @@ urlpatterns = [
 # EMPLOYEES PATHS by Hayley
     path('employees/', views.EmployeesListView.as_view(), name='employees'),
     path('employees/<int:pk>/', views.EmployeesDetailView.as_view(), name='employees_detail'),
-    path('employees/add/', views.EmployeesFormView.as_view(), name='employees_form'),
-    ]
+    path('employees/<int:pk>/edit', views.EmployeesEditView.as_view(), name='employees_edit'),
+    path('employees/add/', views.EmployeesFormView.as_view(), name='employees_form')
+]
