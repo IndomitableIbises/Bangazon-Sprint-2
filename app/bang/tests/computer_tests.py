@@ -1,4 +1,4 @@
-# Author: Raf
+# Author: Erin
 import unittest
 from django.test import TestCase
 from django.urls import reverse
@@ -8,9 +8,9 @@ from bang.models import Computer
 class ComputerTest(TestCase):
 
     def test_computer_response(self):
-        """ Test verifies response includes all fields and returns status code 200 """
+        """ Test verifies response content contains all required input fields """
         
-        new_computer = Computer.objects.create(
+        Computer.objects.create(
             make = 'Apple',
             model = 'MacBook Pro',
             purchase_date = '2018-08-08'
@@ -21,20 +21,43 @@ class ComputerTest(TestCase):
         # Check that response includes all fields
         self.assertContains(response, 'Apple', count=None, status_code=200)
         self.assertContains(response, 'MacBook Pro', count=None, status_code=200)
-        # self.assertContains(response, '2018-08-08', count=None, status_code=200)
+
+        #Note:  standard date formats are converted from YYYY-MM-DD to Mon. DD, YYYY
+        self.assertContains(response, 'Aug. 8, 2018', count=None, status_code=200)
+
+    # def test_can_get_computer_form(self):
+    #     """ Test verifies computer form exists """
+
+    #     response = self.client.get(reverse('bang:computer_form'))
+
         
 
+    def test_post_new_computer(self):
+        """ Test verifies client can post a new computer using computer_form and redirects to success url """
 
-    # def test_get_department_form(self):
+        response = self.client.post(reverse('bang:computer_form'), {
+            'make': 'Apple',
+            'model': 'MacBook',
+            'purchase_date': '2018-08-09'
+            }, follow=True)
+        
+        #Asserts response has posted and redirected successfully to success url
+        self.assertEqual(response.status_code, 200)
 
-    #   response = self.client.get(reverse('bang:departments_form'))
+    def test_delete_computer(self):
+        """ Test verifies client can delete a computer using computer_form and redirects to success url """
 
-    #   self.assertIn(
-    #       '<form'.encode(), response.content)
+        #This posts a computer to the client
+        response1 = self.client.post(reverse('bang:computer_form'), {
+            'make': 'Apple',
+            'model': 'MacBook',
+            'purchase_date': '2018-08-09'
+            }, follow=True)
 
-    def test_post_department(self):
-
-      response = self.client.post(reverse('bang:departments_form'), {'dept_name': 'Department of Poopland Security'})
-
-      # Getting 200 back because we have a success url and the view is redirecting under the covers?
-      self.assertEqual(response.status_code, 200)
+        response2 = self.client.delete('bang/ computers/1/computer_confirm_delete', {
+            'computer_id': '1'
+            }, follow=True)
+        
+        #Asserts response has posted and redirected successfully to success url
+        self.assertEqual(response1.status_code, 200)
+        self.assertEqual(response2.status_code, 200)
