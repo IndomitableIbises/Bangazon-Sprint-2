@@ -1,0 +1,77 @@
+h1{
+    text-align: center;
+}
+
+/* Computer List CSS */
+
+.container {
+    width: 100%;
+    margin: 8px auto;
+}
+
+.computer_ul{
+    list-style-type: none;
+    width: 100%;
+    /* margin: 8px auto; */
+    padding-left:0;
+}
+
+.computer_ul li {
+    width: 30%;
+    float: left;
+    margin: 0 1.66%;
+    padding-left: 0;
+    text-align: center;
+}
+
+.computer_ul li a{
+    margin:0px auto;
+    text-decoration: none;
+    color: black;
+}
+
+.computer_card{
+    margin: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid grey;
+    height: 48px;
+}
+
+.computer_card p{
+    margin-top:4px;
+}
+
+.float_clear{
+    clear:both;
+}
+
+/* Computer Detail CSS */
+
+.computer_detail{
+    width: 60%;
+    margin: 8px auto;
+    text-align: center;
+}
+
+.delete_div{
+    width:64px;
+    margin: 4px auto;
+}
+
+.delete_div a{
+    text-decoration: none;
+    font-weight: bold;
+    color:black;
+}
+
+.delete{
+    text-align: center;
+    width:64px;
+    border-radius: 4px;
+    border: 2px solid red;
+    height:32px;
+}
+.delete p{
+    margin-top: 6px;
+}
