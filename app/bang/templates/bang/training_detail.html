@@ -15,12 +15,12 @@
 
 {% if training.end_date > now %}
 <p><a href="{% url 'bang:training_edit' training.id %}">edit</a></p>
-{% endif %}
+
 <form action="{% url 'bang:training_delete' pk=training.id %}" method='post'>
     {% csrf_token %}
     <input type="submit" value="Delete">
 </form>
-
+{% endif %}
 <h2>Employee - Training</h2>
 {% for training_relationship in training.employees_set.all %}
     <li>{{training_relationship}}</li>
