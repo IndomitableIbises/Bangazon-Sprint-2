@@ -1,0 +1,114 @@
+/* Employee List CSS */
+
+.employee_list{
+    width:100%;
+    text-align: center;
+}
+
+.employee_list ul {
+    list-style-type: none;
+    width: 100%;
+    padding-left: 0;
+}
+
+.employee_list li{
+    width: 23%;
+    float: left;
+    margin: 0 1%;
+    padding-left: 0;
+    text-align: center;
+}
+
+.employee_list li a{
+    margin:0px auto;
+    text-decoration: none;
+    color: black;
+}
+
+.employee_card{
+    margin: 8px;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid grey;
+    height: 40px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.employee_card p{
+    width: 100%;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+.float_clear{
+    clear:both;
+}
+
+/* Employee Detail CSS */
+
+.employee_detail{
+    text-align: center;
+}
+
+.employee_detail ul{
+    padding-left:0;
+    list-style-type: none;
+}
+
+.employee_detail ul p{
+    font-weight: bold;
+}
+
+.edit_div{
+    width:64px;
+    margin: 4px auto;
+}
+
+.edit_div a{
+    text-decoration: none;
+    font-weight: bold;
+    color:black;
+}
+
+.edit{
+    text-align: center;
+    width:64px;
+    border-radius: 6px;
+    border: 1px solid green;
+    height:32px;
+}
+
+.edit p{
+    margin-top: 6px;
+}
+
+/* Employee Form CSS */
+
+.employee_form {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.employee_form label::before{
+    content: "\A";
+    white-space: pre;
+    margin-top: 8px;
+    margin-left: auto;
+}
+
+.employee_form input{
+    margin-top:8px;
+    margin-right:auto;
+}
+
+.employee_form select{
+    margin-top:8px;
+    margin-right:auto;
+}

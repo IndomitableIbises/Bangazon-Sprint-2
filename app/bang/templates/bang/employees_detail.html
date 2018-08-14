@@ -3,22 +3,35 @@
 
 {% block main_stuff %}
 
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bang/employee.css' %}"> 
+
 {% include "bang/navbar.html" with nav_location=location %}
+
+<div class='employee_detail'>
 <h1>Employee Profile</h1>
 
 <h2>Name: {{employees.first_name}} {{employees.last_name}}</h2>
 <h3>Department: {{employees.department}}</h3>
 <h3>Start Date: {{employees.start_date}}</h3>
 <h3>Computer: {{employees.computer}} </h3>
+<h3>Training Programs:</h3>
 <ul>
 {% for training in employees.training.all %}
     <li>
-        <h3>Training: {{training.name}}</h3>
+        <p>{{training.name}}</p>
     </li>
 {% endfor %}
 </ul>
-<p><a href="{% url 'bang:employees_edit' employees.id %}">Edit</a></p>
-
+<div class='edit_div'>
+    <a href="{% url 'bang:employees_edit' employees.id %}">
+        <div class='edit'>
+            <p>Edit</p>
+        </div>
+    </a>
+</div>
+</div>
 {% endblock main_stuff %}
 
 <!-- Maybe we'll want to show all the employees in each department? -->
