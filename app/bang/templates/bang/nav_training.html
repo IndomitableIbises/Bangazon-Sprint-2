@@ -1,4 +1,4 @@
-<h3>Training Sub Navigation</h3>
+
 <nav>
     <ul class='sub_nav'>
     {% if nav_location != 'training' %}
@@ -8,10 +8,11 @@
         </form>
         </li>
     {% endif %}
-    {% if nav_location != 'training_list' %}
+
+    {% if nav_location != 'training_form' %}
         <li>    
         <form action='/bang/training/add' method='GET'>
-            <input type='submit' value='Add New'>
+            <input type='submit' value='Add New Training'>
         </form>
         </li>
     {% endif %}

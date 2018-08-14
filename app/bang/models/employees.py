@@ -13,6 +13,7 @@ class Employees(models.Model):
     computer = models.ForeignKey(Computer, on_delete=models.CASCADE, blank=True, null=True,)
     training = models.ManyToManyField(Training)
 
+
     class Meta:
         db_table = 'employees'
 
