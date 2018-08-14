@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bang/computer.css' %}">
+
+<div class='computer_delete'>
+<h1>Computer Deletion</h1>
+{% for employee in computer.employees_set.all %}
+
+
+<p>You cannot delete this computer.  Please return to :  <a href="{% url 'bang:computer_list' %}">Computer List </a> and choose an unassigned computer</p>
+
+{% empty %}
+
+    <form method="post">
+    
+    {% csrf_token %}
+
+    <p>Are you sure you want to delete "{{ computer.make }} {{ computer.model}}"?</p>
+    <input type="submit" value="Confirm">
+    </form>
+    
+    <a href="{% url 'bang:computer_detail' computer.id %}">Return to Computer {{computer.id}}</a>
+
+{% endfor %}
+</div>

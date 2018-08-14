@@ -1,0 +1,30 @@
+<!-- Sean Irwin -->
+{% extends "bang/index.html" %}
+
+{% block main_stuff %}
+{% include "bang/navbar.html" with nav_location=location %}
+
+<h1>Training Details</h1>
+
+<h2>{{training.name}}</h2>
+
+<p>Start Date: {{training.start_date}}</p>
+<p>End Date: {{training.end_date}}</p>
+<p>Description: {{training.description}}</p>
+<p>Max Attendees: {{training.max_attendees}}</p>
+
+<p><a href="{% url 'bang:training_edit' training.id %}">edit</a></p>
+
+<form action="{% url 'bang:training_delete' pk=training.id %}" method='post'>
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+
+<h2>Employee - Training</h2>
+{% for training_relationship in training.employees_set.all %}
+    <li>{{training_relationship}}</li>
+{% endfor %}
+
+
+
+{% endblock main_stuff %}

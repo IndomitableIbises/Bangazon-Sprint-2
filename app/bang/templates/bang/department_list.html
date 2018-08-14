@@ -1,16 +1,28 @@
 <!-- Author: Raf -->
-{% extends 'bang/index.html' %}
-{% block main_stuff %}
+{% extends 'bang/index.html' %} 
 
-  {% include "bang/navbar.html" with nav_location=location %}
-  <h1>These Are Departments from DepartmentListView </h1>
+{% block main_stuff %} 
 
-  <ul>
-    {% for department in department_list %}
-    <li>
-      <a href="{% url 'bang:department_detail' department.id %}">{{department.dept_name}}</a>
-      Placeholder Text
-    </li>
-    {% endfor %}
-  </ul>
-{% endblock main_stuff %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'bang/department.css' %}"> 
+
+{% include "bang/navbar.html" with nav_location=location %}
+
+<div class='department_list'>
+    <h1>Bangazon LLC Departments </h1>
+
+    <ul>
+        {% for department in department_list %}
+        <li>
+            <a href="{% url 'bang:department_detail' department.id %}">
+                <div class='department_card'>
+                    <p>{{department.dept_name}}</p>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class='float_clear'></div>
+    </div>
+    {% endblock main_stuff %}

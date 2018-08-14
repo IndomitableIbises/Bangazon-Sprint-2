@@ -3,14 +3,18 @@
 
 {% block main_stuff %}
 
+{% load static %}
 
+<link rel="stylesheet" type="text/css" href="{% static 'bang/employee.css' %}"> 
 
-<h3>Add a new Employee</h3>
+<div class='employee_form'>
+<h3>Add/Edit an Employee</h3>
 
 <form method='post'>
     {% csrf_token %}
     {{ form }}
+    <br>
     <input type="submit" value="Save Employee">
   </form>
-
+</div>
 {% endblock main_stuff %}
