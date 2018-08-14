@@ -8,10 +8,10 @@
 
 <h2>{{training.name}}</h2>
 
-<p>{{training.start_date}}</p>
-<p>{{training.end_date}}</p>
-<p>{{training.description}}</p>
-<p>{{training.max_attendees}}</p>
+<p>Start Date: {{training.start_date}}</p>
+<p>End Date: {{training.end_date}}</p>
+<p>Description: {{training.description}}</p>
+<p>Max Attendees: {{training.max_attendees}}</p>
 
 <p><a href="{% url 'bang:training_edit' training.id %}">edit</a></p>
 
